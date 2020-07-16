@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 500px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.input_name {
+  width: 500px;
+  border-radius: 5px;
+  border-width: 1px;
+  font-size: 18px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.input_num {
+  width: 500px;
+  border-radius: 5px;
+  border-width: 1px;
+  font-size: 18px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.btn_add {
+  background: rgb(241, 241, 241);
+  border-radius: 5px;
+  border-width: 1px;
+  font-size: 18px;
+}

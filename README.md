@@ -1,1 +1,1 @@
-# goit-react-hw-03-phonebook2
+# goit-react-hw-02-feedback

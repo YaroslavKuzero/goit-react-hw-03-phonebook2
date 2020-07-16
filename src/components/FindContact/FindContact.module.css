@@ -1,0 +1,13 @@
+.find_contact {
+  width: 500px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  border-width: 1px;
+  padding-left: 10px;
+}
+
+.find_contact::placeholder {
+  font-size: 16px;
+  font-weight: 100;
+}

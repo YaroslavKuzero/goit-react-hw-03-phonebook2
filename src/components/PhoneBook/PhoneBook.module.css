@@ -1,0 +1,16 @@
+.phonebook {
+  padding: 5px;
+}
+
+.phonebook_header {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.section_header {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
