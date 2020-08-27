@@ -8,6 +8,10 @@ const initialState = {
 }
 class Form extends Component {
 
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  }
+
   state = {
     name: '',
     number: ''
@@ -41,10 +45,6 @@ class Form extends Component {
       </form>
     )
   }
-}
-
-Form.PropTypes = {
-  onSubmit: PropTypes.func.isRequired
 }
 
 export default Form;
