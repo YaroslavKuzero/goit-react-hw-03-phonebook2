@@ -1,10 +1,15 @@
 import React from 'react';
-import styles from './FindContact.module.css';
+import { find_contact } from './FindContact.module.css';
 import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange }) => (
   <label>
-    <input className={styles.find_contact} type='text' placeholder='Find contact by name' value={value} onChange={onChange}></input>
+    <input
+      className={find_contact}
+      type='text'
+      placeholder='Find contact by name'
+      value={value}
+      onChange={onChange} />
   </label>
 );
 

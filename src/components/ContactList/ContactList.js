@@ -1,17 +1,22 @@
 import React from 'react';
-import styles from './ContactList.module.css';
+import s from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 const ContactList = ({ renderItems, totalItems, handler }) => (
   <>
-    <ul className={styles.contact_list}>
-      {renderItems.map(item => (<li className={styles.contact_list_item} key={item.id}><span className={styles.contact_name}>{item.name}: </span><span className={styles.contact_number}>{item.number}</span>
-        <button className={styles.btn_delete} title='delete'
-          onClick={() => handler(item.id)}
-        >x</button>
-      </li>))}
+    <ul className={s.contact_list}>
+      {renderItems.map(({ id, name, number }) => (
+        <li
+          className={s.contact_list_item}
+          key={id}>
+          <span className={s.contact_name}>{name}: </span>
+          <span className={s.contact_number}>{number}</span>
+          <button className={s.btn_delete} title='delete'
+            onClick={() => handler(id)}
+          >x</button>
+        </li>))}
     </ul>
-    <p className={styles.total_contacts}>Total contacts: {totalItems.length}</p>
+    <p className={s.total_contacts}>Total contacts: {totalItems.length}</p>
   </>
 );
 
