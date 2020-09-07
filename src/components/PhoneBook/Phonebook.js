@@ -7,8 +7,6 @@ import ContactList from '../ContactList';
 
 import s from './PhoneBook.module.css'
 
-
-
 class Phonebook extends Component {
 
   state = {
@@ -34,8 +32,8 @@ class Phonebook extends Component {
     }))
   }
 
-  changeFilterHandler = e => {
-    this.setState({ filter: e.currentTarget.value });
+  changeFilterHandler = ({ target: { value } }) => {
+    this.setState({ filter: value });
   }
 
   getFilteredContacts = () => {
@@ -66,6 +64,7 @@ class Phonebook extends Component {
 
   render() {
     const visibleContacts = this.getFilteredContacts();
+    const { contacts, filter } = this.state
 
     return (
       <div className={s.phonebook}>
@@ -74,8 +73,8 @@ class Phonebook extends Component {
         <Form onSubmit={this.onSubmitHandler} />
 
         <h2 className={s.section_header}>Contacts</h2>
-        <Filter value={this.state.filter} onChange={this.changeFilterHandler} />
-        <ContactList renderItems={visibleContacts} totalItems={this.state.contacts} handler={this.deleteContactHandler} />
+        <Filter value={filter} onChange={this.changeFilterHandler} />
+        <ContactList items={visibleContacts} totalItems={contacts.length} handler={this.deleteContactHandler} />
       </div >
     )
   }

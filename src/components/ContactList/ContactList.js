@@ -1,11 +1,12 @@
 import React from 'react';
-import s from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
-const ContactList = ({ renderItems, totalItems, handler }) => (
+import s from './ContactList.module.css';
+
+const ContactList = ({ items, totalItems, handler }) => (
   <>
     <ul className={s.contact_list}>
-      {renderItems.map(({ id, name, number }) => (
+      {items.map(({ id, name, number }) => (
         <li
           className={s.contact_list_item}
           key={id}>
@@ -16,13 +17,13 @@ const ContactList = ({ renderItems, totalItems, handler }) => (
           >x</button>
         </li>))}
     </ul>
-    <p className={s.total_contacts}>Total contacts: {totalItems.length}</p>
+    <p className={s.total_contacts}>Total contacts: {totalItems}</p>
   </>
 );
 
 ContactList.propTypes = {
-  renderItems: PropTypes.array.isRequired,
-  totalItems: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
+  totalItems: PropTypes.number.isRequired,
   handler: PropTypes.func.isRequired
 }
 
