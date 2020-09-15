@@ -14,6 +14,20 @@ class Phonebook extends Component {
     filter: ''
   }
 
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem('contactList'))
+    if (contacts) {
+      this.setState({ contacts: contacts })
+    }
+  }
+
+  componentDidUpdate(prevState) {
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('contactList', JSON.stringify(contacts))
+    }
+  }
+
   onSubmitHandler = ({ name, number }) => {
     const contactName = name.toLowerCase();
     const { contacts } = this.state
@@ -23,8 +37,8 @@ class Phonebook extends Component {
     }
     const newContact = {
       id: uuidv4(),
-      name: name,
-      number: number
+      name,
+      number
     }
 
     this.setState(prevState => ({
@@ -46,20 +60,6 @@ class Phonebook extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id)
     }))
-  }
-
-  componentDidMount() {
-    const contacts = JSON.parse(localStorage.getItem('contactList'))
-    if (contacts) {
-      this.setState({ contacts: contacts })
-    }
-  }
-
-  componentDidUpdate(prevState) {
-    const { contacts } = this.state;
-    if (contacts !== prevState.contacts) {
-      localStorage.setItem('contactList', JSON.stringify(contacts))
-    }
   }
 
   render() {
